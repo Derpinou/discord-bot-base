@@ -1,0 +1,38 @@
+{
+  "name": "discord-bot-base",
+  "version": "1.0.0",
+  "description": "Discord bot code base written in TS with Oceanic.js",
+  "scripts": {
+    "commands": "npm run build && node dist/commands",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "npm run build && npm run start",
+    "database": "npm run build && node dist/initDB"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derpinou/discord-bot-base.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derpinou/discord-bot-base/issues"
+  },
+  "homepage": "https://github.com/derpinou/discord-bot-base#readme",
+  "dependencies": {
+    "@discordjs/rest": "^1.3.0",
+    "dotenv": "^16.0.3",
+    "oceanic.js": "^1.2.1",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2"
+  }
+}

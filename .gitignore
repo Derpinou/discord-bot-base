@@ -1,0 +1,21 @@
+# Files
+
+## dependencies
+package-lock.json
+
+## environment variables
+.env
+
+# Folders
+
+## dependencies
+node_modules/
+
+## editor config files
+.fleet/
+.vscode/
+.idea/
+
+## build
+dist/
+
