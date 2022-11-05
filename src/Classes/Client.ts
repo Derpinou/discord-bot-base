@@ -4,7 +4,7 @@ import SlashCommand from './Commands/SlashCommand';
 import ComponentCommand from './Commands/ComponentCommand';
 import PingSlashCommand from '../Commands/slash/ping';
 import PingComponentCommand from '../Commands/component/ping';
-import Event from './Event';
+import EventHandler from './Event';
 import ModalCommand from './Commands/ModalCommand';
 import EighBallSlashCommand from '../Commands/slash/eightBall';
 import EightBallModalCommand from '../Commands/modal/eightball';
@@ -13,7 +13,7 @@ export default class ExtendedClient extends Client {
 	private SlashCommands: Map<string, SlashCommand> = new Map<string, SlashCommand>();
 	private ComponentCommands: Map<string, ComponentCommand> = new Map<string, ComponentCommand>();
 	private ModalCommands: Map<string, ModalCommand> = new Map<string, ModalCommand>();
-	private eventHandler: Event = new Event(this);
+	private eventHandler: EventHandler = new EventHandler(this);
 
 	constructor(private readonly conf: envConf, options?: ClientOptions) {
 		super(options);
@@ -24,7 +24,6 @@ export default class ExtendedClient extends Client {
 		this.loadCommands();
 		this.handleEvents();
 	}
-
 
 	private handleEvents () {
 		this.on('ready', this.eventHandler.onReady);

@@ -6,7 +6,7 @@ export default abstract class BaseCommand {
 
     abstract run(interaction: AnyInteraction, ...args: any[]): unknown;
 
-    formatCustomID(name: string, uid: string, ...args: string[]): string {
+    protected formatCustomID(name: string, uid: string, ...args: string[]): string {
     	return `${name}:${uid}${args ? ':'+args.join(':') : ''}`;
     }
 

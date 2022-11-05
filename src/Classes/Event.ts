@@ -1,7 +1,7 @@
 import ExtendedClient from './Client';
 import { AnyInteraction, InteractionTypes } from 'oceanic.js';
 
-export default class Event {
+export default class EventHandler {
 	constructor(private readonly client: ExtendedClient) {
 		this.onReady = this.onReady.bind(this);
 		this.onInteractionCreate = this.onInteractionCreate.bind(this);

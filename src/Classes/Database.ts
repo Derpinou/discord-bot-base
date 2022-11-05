@@ -26,7 +26,7 @@ export class Database {
 	}
 
 	public initDB () {
-		fs.readFile('src/init.sql', (err, data) => {
+		fs.readFile('src/sql/init.sql', (err, data) => {
 			if (err) return console.error(err);
 			this.client.query(data.toString()).then(() => {
 				console.log('Init database with success');
