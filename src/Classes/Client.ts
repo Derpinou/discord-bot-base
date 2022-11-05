@@ -1,16 +1,16 @@
 import { Client, ClientOptions, CommandInteraction, ComponentInteraction, ModalSubmitInteraction } from 'oceanic.js';
 import { envConf } from '../Types/global';
-import SlashCommand from './Commands/SlashCommand';
+import ApplicationCommand from './Commands/ApplicationCommand';
 import ComponentCommand from './Commands/ComponentCommand';
-import PingSlashCommand from '../Commands/slash/ping';
+import PingSlashCommand from '../Commands/application/ping';
 import PingComponentCommand from '../Commands/component/ping';
 import EventHandler from './Event';
 import ModalCommand from './Commands/ModalCommand';
-import EighBallSlashCommand from '../Commands/slash/eightBall';
+import EighBallSlashCommand from '../Commands/application/eightBall';
 import EightBallModalCommand from '../Commands/modal/eightball';
 
 export default class ExtendedClient extends Client {
-	private SlashCommands: Map<string, SlashCommand> = new Map<string, SlashCommand>();
+	private ApplicationCommands: Map<string, ApplicationCommand> = new Map<string, ApplicationCommand>();
 	private ComponentCommands: Map<string, ComponentCommand> = new Map<string, ComponentCommand>();
 	private ModalCommands: Map<string, ModalCommand> = new Map<string, ModalCommand>();
 	private eventHandler: EventHandler = new EventHandler(this);
@@ -32,7 +32,7 @@ export default class ExtendedClient extends Client {
 
 	public handleCommand (interaction: CommandInteraction) {
 		const name = interaction.data.name;
-		const cmd = this.SlashCommands.get(name);
+		const cmd = this.ApplicationCommands.get(name);
 		if (cmd) return cmd.run(interaction);
 	}
 
@@ -75,14 +75,14 @@ export default class ExtendedClient extends Client {
 	}
 
 	private loadCommands () {
-		this.loadSlashCommands();
+		this.loadApplicationCommands();
 		this.loadComponentCommands();
 		this.loadModalCommands();
 	}
 
-	private loadSlashCommands () {
-		this.SlashCommands.set('ping', new PingSlashCommand(this));
-		this.SlashCommands.set('8ball', new EighBallSlashCommand(this));
+	private loadApplicationCommands () {
+		this.ApplicationCommands.set('ping', new PingSlashCommand(this));
+		this.ApplicationCommands.set('8ball', new EighBallSlashCommand(this));
 	}
 
 	private loadComponentCommands () {

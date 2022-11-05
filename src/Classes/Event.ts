@@ -21,5 +21,6 @@ export default class EventHandler {
 			return this.client.handleModal(interaction);
 		}
 
+
 	}
 }

@@ -15,6 +15,9 @@ const commands: CreateGuildApplicationCommandOptions[] = [
 		name: '8ball',
 		description: 'Random 8ball',
 		type: ApplicationCommandTypes.CHAT_INPUT
+	}, {
+		name: 'report',
+		type: ApplicationCommandTypes.MESSAGE
 	}
 ];
 

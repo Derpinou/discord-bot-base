@@ -1,8 +1,8 @@
-import SlashCommand from '../../Classes/Commands/SlashCommand';
+import ApplicationCommand from '../../Classes/Commands/ApplicationCommand';
 import ExtendedClient from '../../Classes/Client';
 import { CommandInteraction, ComponentTypes, TextInputStyles } from 'oceanic.js';
 
-export default class EighBallSlashCommand extends SlashCommand {
+export default class EighBallSlashCommand extends ApplicationCommand {
 	constructor(client: ExtendedClient) {
 		super(client);
 	}
